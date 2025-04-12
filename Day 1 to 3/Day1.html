@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Even Number Filter - ES6 Features</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f9ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Filter Even Numbers</h1>
+  <input type="text" id="numberInput" placeholder="Enter numbers like 1,2,3,4">
+  <button id="filterBtn">Get Even Numbers</button>
+  <div id="result"></div>
+
+  <script>
+    // ✅ Arrow function with filter to get even numbers
+    const filterEvenNumbers = (numbers) => numbers.filter(num => num % 2 === 0);
+
+    // ✅ Event listener with arrow function
+    document.getElementById("filterBtn").addEventListener("click", () => {
+      const input = document.getElementById("numberInput").value;
+
+      // ✅ Spread operator to clone the array
+      const numberStrings = [...input.split(',')];
+
+      // ✅ Convert to integers & clean using map and filter
+      const numberArray = numberStrings.map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+
+      // ✅ Array Destructuring to show the first number separately
+      const [first, ...rest] = numberArray;
+
+      // ✅ Call function and spread back
+      const evenNumbers = filterEvenNumbers([first, ...rest]);
+
+      // ✅ Object Destructuring (for practice)
+      const resultObject = {
+        even: evenNumbers,
+        total: evenNumbers.length
+      };
+      const { even, total } = resultObject;
+
+      // ✅ Template Literal for clean output
+      const message = `✅ Total Even Numbers: ${total} <br> 🔢 Numbers: ${even.join(', ')}`;
+      document.getElementById("result").innerHTML = message;
+    });
+  </script>
+
+</body>
+</html>

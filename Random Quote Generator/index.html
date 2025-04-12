@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Quote Generator</title>
+  <link rel="stylesheet" href="ME.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <div class="quote-box fade-in">
+      <div id="quote" class="quote">Loading quote...</div>
+      <div id="author" class="author"></div>
+      <div class="buttons">
+        <button onclick="getQuote()">🎲 New Quote</button>
+        <button onclick="copyQuote()">📋 Copy</button>
+        <button onclick="toggleTheme()">🌙 Toggle Theme</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="ME.js"></script>
+</body>
+</html>
