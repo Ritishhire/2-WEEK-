@@ -2,7 +2,7 @@ const quoteEl = document.getElementById('quote');
 const authorEl = document.getElementById('author');
 
 const API_URL = 'https://api.api-ninjas.com/v1/quotes';
-const API_KEY = 'HYStYCxciZfYVDEr4nXs3A==laOjxlRfKoYhVt7F'; // Replace with your actual API key
+
 
 // Set a random gradient background from 0 to 19
 function setRandomBackground() {
@@ -58,3 +58,14 @@ function toggleTheme() {
 }
 
 getQuote();
+
+
+
+// ME.js
+console.log("Using API key:", API_KEY); //hai config.js se aa raha hai api key
+
+// Example: using fetch with API key
+fetch(`https://example.com/data?apiKey=${API_KEY}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error("Error:", error));
